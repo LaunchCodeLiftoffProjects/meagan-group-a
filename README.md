@@ -7,4 +7,4 @@ Created by:
 <br>Demet Akcaoglu,
 <br>Davey Ardrey,
 <br>Jason Rounds,
-<br>K Suma,
+<br>K Suma
