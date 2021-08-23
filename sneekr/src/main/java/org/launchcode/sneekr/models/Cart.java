@@ -12,9 +12,7 @@ public class Cart {
     @GeneratedValue
     private int id;
 
-    @OneToMany
-    @JoinColumn(name = "cart_id")
-    private List<Item> items = new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
 
     public Cart() {
 
