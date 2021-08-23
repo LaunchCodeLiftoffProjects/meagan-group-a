@@ -14,7 +14,7 @@ public class Cart {
     @GeneratedValue
     private int id;
 
-    private List<Item> items = new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
 
     public Cart() {
 
