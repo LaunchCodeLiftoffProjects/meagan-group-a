@@ -1,8 +1,6 @@
 package org.launchcode.sneekr.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -14,6 +12,8 @@ public class Cart {
     @GeneratedValue
     private int id;
 
+    @OneToMany
+    @JoinColumn(name = "cart_id")
     private List<Item> items = new ArrayList<>();
 
     public Cart() {
