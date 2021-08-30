@@ -53,13 +53,13 @@ public class Item {
         this.price = price;
     }
 
+
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
+        return "Item{id:" + id +
+                ",name:" + name +
+                ",description:" + description +
+                ",price:" + price +
                 '}';
     }
 
