@@ -1,47 +1,77 @@
 package org.launchcode.sneekr.models;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
-@Entity
+
 public class Cart {
 
-    @Id
-    @GeneratedValue
-    private int id;
+    private List<CartItem> items = new ArrayList<>();
 
-    private ArrayList<Item> items = new ArrayList<>();
+    private double total = 0;
 
     public Cart() {
 
     }
 
-    public void addItem(Item item) {
-        this.items.add(item);
+    public void addItem(Item item, int quantity) {
+        for (int i = 0; i < quantity; i++) {
+            this.total += item.getPrice();
+        }
+        this.items.add(new CartItem(item, quantity));
     }
 
-    public void removeItem(Item item) {
-        this.items.remove(item);
+    public List<CartItem> addItem(Item item) {
+        if (this.findItemInCart(item).isPresent()) {
+             return increaseItemQuantity(item);
+        }
+        this.total += item.getPrice();
+        this.items.add(new CartItem(item, 1));
+        return this.items;
     }
 
-    public int getId() {
-        return id;
+    public List<CartItem> removeItem(Item item) {
+        CartItem cartItem = this.findItemInCart(item).get();
+        double totalItemPrice = cartItem.getItem().getPrice() * cartItem.getQuantity();
+        this.total -= totalItemPrice;
+        this.items.remove(cartItem);
+        return this.items;
     }
 
-    public List<Item> getItems() {
+    public List<CartItem> increaseItemQuantity(Item item) {
+        CartItem cartItem = this.findItemInCart(item).get();
+        this.total += cartItem.getItem().getPrice();
+        cartItem.setQuantity(cartItem.getQuantity() + 1);
+        return this.items;
+    }
+
+    public List<CartItem> decreaseItemQuantity(Item item) {
+        CartItem cartItem = this.findItemInCart(item).get();
+        this.total -= cartItem.getItem().getPrice();
+        cartItem.setQuantity(cartItem.getQuantity() - 1);
+        return this.items;
+    }
+
+    public Optional<CartItem> findItemInCart(Item item) {
+        for (CartItem cartItem : this.items) {
+            if (cartItem.getItem().equals(item)) {
+                return Optional.of(cartItem);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public List<CartItem> getItems() {
         return items;
+    }
+
+    public double getTotal() {
+        return this.total;
     }
 
 
     @Override
     public String toString() {
-        StringBuilder itemList = new StringBuilder();
-        for (Item i : this.items) {
-            itemList.append(i.toString()).append(" ");
-        }
-        return "Cart{" + "id=" + id + ", items=" + itemList + '}';
+        return "Cart{" + "items=" + items + ", total=" + total + '}';
     }
 
     @Override
@@ -51,12 +81,11 @@ public class Cart {
 
         Cart cart = (Cart) o;
 
-        if (id != cart.id) return false;
         return items.equals(cart.items);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.items);
+        return Objects.hash(this.items);
     }
 }
