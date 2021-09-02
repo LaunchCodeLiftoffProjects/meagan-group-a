@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { HttpClientModule} from "@angular/common/http";
 import { NavbarComponent } from './navbar/navbar.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    NavbarComponent
+    NavbarComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
