@@ -1,0 +1,10 @@
+<div class="container">
+  <h4>Order Number: {{order.id}}</h4>
+  <div *ngFor="let item of order.items">
+    <ul>
+      <li>{{item.name}}</li>
+      <li>${{item.price}}</li>
+    </ul>
+  </div>
+  <h5>Total: {{order.totalCost}}</h5>
+</div>
