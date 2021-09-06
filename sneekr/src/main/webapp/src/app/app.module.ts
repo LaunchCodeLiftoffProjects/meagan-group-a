@@ -8,13 +8,17 @@ import { ListComponent } from './list/list.component';
 import { HttpClientModule} from "@angular/common/http";
 import { NavbarComponent } from './navbar/navbar.component';
 import { OrderComponent } from './order/order.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     NavbarComponent,
-    OrderComponent
+    OrderComponent,
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
