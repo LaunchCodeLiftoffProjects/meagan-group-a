@@ -3,6 +3,7 @@ package org.launchcode.sneekr.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +16,9 @@ public class Item {
     private String name;
     private String description;
     private double price;
+
+    @ManyToOne
+    private CustomerOrder customerOrder;
 
     public Item(String name, String description, double price) {
         this.name = name;
@@ -53,6 +57,13 @@ public class Item {
         this.price = price;
     }
 
+    public CustomerOrder getCustomerOrder() {
+        return customerOrder;
+    }
+
+    public void setCustomerOrder(CustomerOrder customerOrder) {
+        this.customerOrder = customerOrder;
+    }
 
     @Override
     public String toString() {

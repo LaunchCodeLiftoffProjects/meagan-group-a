@@ -1,9 +1,7 @@
 package org.launchcode.sneekr.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -14,6 +12,8 @@ public class User {
     private final String name;
     private final String email;
 
+    @OneToMany(mappedBy = "user")
+    private List<CustomerOrder> customerOrders;
     // standard constructors / setters / getters / toString
 
     public User() {
