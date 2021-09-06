@@ -2,6 +2,7 @@ package org.launchcode.sneekr.controllers;
 
 import org.launchcode.sneekr.models.Cart;
 import org.launchcode.sneekr.models.Item;
+import org.launchcode.sneekr.repositories.CustomerOrderRepository;
 import org.launchcode.sneekr.repositories.ItemRepository;
 import org.launchcode.sneekr.utils.CartUtility;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class CartController {
 
     @Autowired
     private ItemRepository itemRepository;
+
+    @Autowired
+    private CustomerOrderRepository customerOrderRepository;
 
     @GetMapping("/cart")
     public Cart viewCart(HttpServletRequest httpServletRequest) {

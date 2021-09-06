@@ -1,6 +1,7 @@
 package org.launchcode.sneekr.controllers;
 
 import org.launchcode.sneekr.models.Item;
+import org.launchcode.sneekr.repositories.CustomerOrderRepository;
 import org.launchcode.sneekr.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,9 @@ public class ItemController {
 
     @Autowired
     private ItemRepository itemRepository;
+
+    @Autowired
+    private CustomerOrderRepository customerOrderRepository;
 
     @GetMapping("/items")
     public Iterable<Item> getItems() {
