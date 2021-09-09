@@ -15,7 +15,6 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOrder();
-    console.log(this.order);
   }
 
   getOrder() {
