@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { OrderComponent } from './order/order.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,16 @@ import { CheckoutComponent } from './checkout/checkout.component';
     NavbarComponent,
     OrderComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
