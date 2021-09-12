@@ -7,9 +7,12 @@ CREATE TABLE items (
 );
 
 create table users(
-                      username varchar_ignorecase(50) not null primary key,
-                      password varchar_ignorecase(50) not null,
-                      enabled boolean not null
+    username varchar_ignorecase(20) not null primary key,
+    email varchar_ignorecase(50) not null,
+    password varchar_ignorecase(50) not null,
+    firstName varchar(30) not null,
+    lastName varchar(30)
+
 );
 
 create table authorities (

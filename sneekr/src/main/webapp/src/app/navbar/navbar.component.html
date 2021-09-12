@@ -1,14 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-
-      <a class="navbar-brand" href="#">Sneekr</a>
+    <a class="navbar-brand" href="#">Sneekr</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" routerLink="/listView">Home</a>
-        <a class="nav-link" href="#">Account</a>
         <a class="nav-link" routerLink="/order">Orders</a>
         <a class="nav-link" routerLink="/cart">Cart</a>
         <a class="nav-link" routerLink="/checkout">Checkout</a>
@@ -18,5 +16,13 @@
       <input type="text" class="form-control me-2" type="search" placeholder="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup2">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/profile">Profile</a>
+        <a class="nav-link" routerLink="/register">Register</a>
+        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/logout">Logout</a>
+      </div>
+    </div>
   </div>
 </nav>
