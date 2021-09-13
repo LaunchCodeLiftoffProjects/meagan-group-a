@@ -15,6 +15,14 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { ProfileComponent } from './profile/profile.component';
+import { ItemDetailComponent } from './checkout/item-detail/item-detail.component';
+import { AddToCartComponent } from './item-description/add-to-cart/add-to-cart.component';
+import { GalleryComponent } from './cart/gallery/gallery.component';
+import { ItemDescriptionComponent } from './item-description/item-description.component';
+import { ItemOptionsComponent } from './item-description/item-options/item-options.component';
+import { ItemColorSelectorComponent } from './item-detail/item-options/item-color-selector/item-color-selector.component';
+import { ItemSizeSelectorComponent } from './item-detail/item-options/item-size-selector/item-size-selector.component';
+import { MessagesComponent } from './item-detail/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +36,15 @@ import { ProfileComponent } from './profile/profile.component';
     CheckoutComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    ItemDetailComponent,
+    AddToCartComponent,
+    GalleryComponent,
+    ItemDescriptionComponent,
+    ItemOptionsComponent,
+    ItemColorSelectorComponent,
+    ItemSizeSelectorComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
