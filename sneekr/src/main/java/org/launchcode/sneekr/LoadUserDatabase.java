@@ -1,8 +1,10 @@
 package org.launchcode.sneekr;
 
+import org.launchcode.sneekr.controllers.AuthController;
 import org.launchcode.sneekr.models.ERole;
 import org.launchcode.sneekr.models.Role;
 import org.launchcode.sneekr.models.User;
+import org.launchcode.sneekr.payload.request.SignupRequest;
 import org.launchcode.sneekr.repositories.RoleRepository;
 import org.launchcode.sneekr.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -26,13 +28,4 @@ class LoadUserDatabase {
             log.info("Role Preloading " + roleRepository.save(new Role(ERole.ROLE_MODERATOR)));
             log.info("Role Preloading " + roleRepository.save(new Role(ERole.ROLE_ADMIN)));		};
     };
-    @Bean
-    CommandLineRunner initUserDatabase(UserRepository userRepository) {
-
-        return args -> {
-            log.info("User Preloading " + userRepository.save(new User("admin", "admin@user.com", "password")));
-            log.info("User Preloading " + userRepository.save(new User("user2", "user2@user.com", "password")));
-            log.info("User Preloading " + userRepository.save(new User("user", "user@user.com", "password")));		};
-    };
-
 }

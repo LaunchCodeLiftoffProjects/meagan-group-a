@@ -1,0 +1,17 @@
+
+
+.navbar-nav {
+  float: left;
+}
+
+.menu-items {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.shop-container {
+  display: flex;
+}
+.auth-container {
+  float: right;
+}

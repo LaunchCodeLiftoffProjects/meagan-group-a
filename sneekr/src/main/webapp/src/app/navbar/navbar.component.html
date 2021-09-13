@@ -5,23 +5,37 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="navbar-nav menu-items">
+        <div class="shop-container">
         <a class="nav-link" routerLink="/listView">Home</a>
         <a class="nav-link" routerLink="/order">Orders</a>
         <a class="nav-link" routerLink="/cart">Cart</a>
         <a class="nav-link" routerLink="/checkout">Checkout</a>
-      </div>
-    </div>
-    <form class="d-flex" action="">
-      <input type="text" class="form-control me-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup2">
-      <div class="navbar-nav">
-        <a class="nav-link" routerLink="/profile">Profile</a>
-        <a class="nav-link" routerLink="/register">Register</a>
-        <a class="nav-link" routerLink="/login">Login</a>
-        <a class="nav-link" routerLink="/logout">Logout</a>
+        </div>
+        <form class="d-flex" action="">
+          <input type="text" class="form-control me-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <div class="auth-container">
+          <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+            <li class="nav-item">
+              <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a href="/login" class="nav-link" routerLink="login">Login</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+            <li class="nav-item">
+              <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+            </li>
+            <li class="nav-item">
+              <a href class="nav-link" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
