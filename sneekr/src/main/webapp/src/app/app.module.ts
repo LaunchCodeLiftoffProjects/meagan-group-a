@@ -11,6 +11,10 @@ import { OrderComponent } from './order/order.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { AddItemComponent } from './add-item/add-item.component';
     OrderComponent,
     CartComponent,
     CheckoutComponent,
-    AddItemComponent
+    AddItemComponent,
+    CheckoutComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
