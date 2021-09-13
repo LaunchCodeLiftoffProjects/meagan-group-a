@@ -24,7 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
     OrderComponent,
     CartComponent,
     CheckoutComponent,
-    AddItemComponent
+    AddItemComponent,
     CheckoutComponent,
     LoginComponent,
     RegisterComponent,
