@@ -4,10 +4,6 @@ INSERT INTO items (name, price) VALUES
     ('Clogs', 39.99),
     ('Sandals', 15.99);
 
-insert into users(username, email, password, firstName, lastName) values
-    ('user','user@user.com','password','User','LastName'),
-    ('admin','admin@admin.com','password','Admin','Lastname');
-
-insert into authorities(username, authority) values
-    ('user','ROLE_USER'),
-    ('admin','ROLE_ADMIN');
+insert into users(username, email, password) values
+    ('user1','user1@user.com','password'),
+    ('admin1','admin1@admin.com','password');

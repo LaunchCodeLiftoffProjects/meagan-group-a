@@ -6,18 +6,21 @@ CREATE TABLE items (
     price DOUBLE NOT NULL
 );
 
+create table roles(
+                      id IDENTITY not null primary key,
+                      name varchar_ignorecase(20) not null
+);
 create table users(
-    username varchar_ignorecase(20) not null primary key,
-    email varchar_ignorecase(50) not null,
-    password varchar_ignorecase(50) not null,
-    firstName varchar(30) not null,
-    lastName varchar(30)
-
+                      id IDENTITY not null primary key,
+                      username varchar_ignorecase(20) unique not null,
+                      email varchar_ignorecase(50) unique not null,
+                      password varchar_ignorecase(120) not null
 );
 
-create table authorities (
-                             username varchar_ignorecase(50) not null,
-                             authority varchar_ignorecase(50) not null,
-                             constraint fk_authorities_users foreign key(username) references users(username)
+create table user_roles (
+                             user_id integer not null,
+                             role_id integer not null,
+                             constraint fk_user_roles foreign key(user_id) references users(id)
+
 );
-create unique index ix_auth_username on authorities (username,authority);
+create unique index ix_auth_username on user_roles (user_id,role_id);
