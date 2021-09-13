@@ -12,7 +12,7 @@ public class CustomerOrder {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToMany(mappedBy = "customerOrder")
+    @ManyToMany(mappedBy = "customerOrder")
     private List<Item> purchasedItems;
 
     @ManyToOne

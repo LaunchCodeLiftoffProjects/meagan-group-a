@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { OrderComponent } from './order/order.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddItemComponent } from './add-item/add-item.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -23,6 +24,8 @@ import { ProfileComponent } from './profile/profile.component';
     OrderComponent,
     CartComponent,
     CheckoutComponent,
+    AddItemComponent
+    CheckoutComponent,
     LoginComponent,
     RegisterComponent,
     ProfileComponent
@@ -32,7 +35,8 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     AppRoutingModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

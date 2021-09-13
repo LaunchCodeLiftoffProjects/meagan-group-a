@@ -1,11 +1,3 @@
-DROP TABLE IF EXISTS items;
-
-CREATE TABLE items (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(250) NOT NULL,
-    price DOUBLE NOT NULL
-);
-
 create table roles(
                       id IDENTITY not null primary key,
                       name varchar_ignorecase(20) not null
