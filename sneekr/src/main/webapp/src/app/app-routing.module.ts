@@ -8,6 +8,7 @@ import { AddItemComponent } from "./add-item/add-item.component";
 import { LoginComponent} from "./login/login.component";
 import { RegisterComponent} from "./register/register.component";
 import { ProfileComponent} from "./profile/profile.component";
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 const routes: Routes = [
   {path: 'listView', component: ListComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
+  {path:'itemDetails',component:ItemDetailComponent},
 
 ];
 
