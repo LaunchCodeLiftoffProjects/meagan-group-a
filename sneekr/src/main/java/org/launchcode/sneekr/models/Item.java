@@ -1,6 +1,7 @@
 package org.launchcode.sneekr.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,7 +17,7 @@ public class Item {
     private double price;
 
     @ManyToMany
-    private List<CustomerOrder> customerOrder;
+    private List<CustomerOrder> customerOrder = new ArrayList<>();
 
     public Item(String name, String description, double price) {
         this.name = name;
