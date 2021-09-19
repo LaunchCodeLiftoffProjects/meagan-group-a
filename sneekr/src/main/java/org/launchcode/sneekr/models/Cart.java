@@ -46,6 +46,9 @@ public class Cart {
 
     public List<CartItem> decreaseItemQuantity(Item item) {
         CartItem cartItem = this.findItemInCart(item).get();
+        if(cartItem.getQuantity() -1 == 0) {
+            return this.removeItem(item);
+        }
         this.total -= cartItem.getItem().getPrice();
         cartItem.setQuantity(cartItem.getQuantity() - 1);
         return this.items;
