@@ -37,9 +37,12 @@ public class CustomerOrder {
     private String state;
 
     @NotNull
+    private String city;
+
+    @NotNull
     private String postalCode;
 
-    public CustomerOrder(List<Item>purchasedItems, User user, String name, String address, String address2, String country, String state, String postalCode) {
+    public CustomerOrder(List<Item>purchasedItems, User user, String name, String address, String address2, String country, String state, String city, String postalCode) {
         this.purchasedItems = purchasedItems;
         this.user = user;
         this.name = name;
@@ -48,13 +51,14 @@ public class CustomerOrder {
         this.address2 = address2;
         this.country = country;
         this.state = state;
+        this.city = city;
         this.postalCode = postalCode;
         for (Item item : purchasedItems) {
             item.getCustomerOrder().add(this);
         }
     }
 
-    public CustomerOrder(List<Item>purchasedItems, String name, String email, String address, String address2, String country, String state, String postalCode) {
+    public CustomerOrder(List<Item>purchasedItems, String name, String email, String address, String address2, String country, String state, String city, String postalCode) {
         this.purchasedItems = purchasedItems;
         this.name = name;
         this.email = email;
@@ -62,6 +66,7 @@ public class CustomerOrder {
         this.address2 = address2;
         this.country = country;
         this.state = state;
+        this.city = city;
         this.postalCode = postalCode;
         for (Item item : purchasedItems) {
             item.getCustomerOrder().add(this);
@@ -132,6 +137,14 @@ public class CustomerOrder {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getPostalCode() {
