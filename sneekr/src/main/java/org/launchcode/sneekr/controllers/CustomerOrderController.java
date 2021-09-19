@@ -20,7 +20,7 @@ public class CustomerOrderController {
     }
 
     @PostMapping("/order")
-    public void saveOrder(@RequestBody CustomerOrder order) {
-        customerOrderRepository.save(order);
+    public CustomerOrder saveOrder(@RequestBody CustomerOrder order) {
+        return customerOrderRepository.save(order);
     }
 }

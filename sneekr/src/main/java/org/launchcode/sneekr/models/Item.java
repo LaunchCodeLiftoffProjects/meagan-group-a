@@ -6,20 +6,18 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "items")
 public class Item {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
     private String description;
-    private double price;
+    private float price;
 
-    @ManyToMany
-    private List<CustomerOrder> customerOrder = new ArrayList<>();
-
-    public Item(String name, String description, double price) {
+    public Item(String name, String description, float price) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -48,28 +46,21 @@ public class Item {
         this.description = description;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
-    }
-
-    public List<CustomerOrder> getCustomerOrder() {
-        return customerOrder;
-    }
-
-    public void setCustomerOrder(List<CustomerOrder> customerOrder) {
-        this.customerOrder = customerOrder;
     }
 
     @Override
     public String toString() {
-        return "Item{id:" + id +
-                ",name:" + name +
-                ",description:" + description +
-                ",price:" + price +
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
                 '}';
     }
 
