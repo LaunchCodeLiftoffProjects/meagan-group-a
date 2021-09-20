@@ -8,25 +8,12 @@ import { ItemDetails } from '@app/item-detail/item-interface';
   styleUrls: ['./item-size-selector.component.css']
 })
 export class ItemSizeSelectorComponent implements OnInit {
-  itemDetails:ItemDetails={
-    id:-1,
-    name: "",
-    photos: [],
-    description: "",
-    sizes: [],
-    colors: [],
-    price: 0}
+
   sizeSelectorList:string[] = []
-  constructor(private itemService:ItemService) { }
+
 
   ngOnInit(): void {
-    this.getItemDetails()
+
   }
-  getItemDetails(){
-    this.itemService.getItemDetails()
-    .subscribe(item => this.itemDetails = item)
-    this.itemService.getItemDetails()
-    .subscribe(item => this.sizeSelectorList = item.sizes)
- 
-  }
+
 }
