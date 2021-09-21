@@ -33,7 +33,7 @@ export class ItemDetailComponent implements OnInit {
     );
   }
   public getTestItem(){
-    this.testItem = this.itemService.getItemDetails().subscribe(item => this.testItem = item)
+    this.testItem = this.itemService.getMockItemDetails().subscribe(item => this.testItem = item)
   }
 
 

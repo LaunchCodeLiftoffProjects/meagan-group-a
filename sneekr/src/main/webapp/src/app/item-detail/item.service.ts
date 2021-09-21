@@ -13,12 +13,15 @@ export class ItemService {
 
   constructor(private messageService: MessageService,private http: HttpClient ) { }
 
-  getItemDetails(): Observable<ItemDetails> {
-    this.messageService.add("ItemService: Fetched Test Item Details")
+  getMockItemDetails(): Observable<ItemDetails> {
+    this.messageService.add("ItemService: Fetched Mock Item Details")
     return of (testItem)  
   }
   getItemById(itemId: number){
     this.messageService.add(`ItemService: Fetched Item Details of item with id:${itemId}`)
     return this.http.get<any>(`${this.apiServerUrl}/items/${itemId}`)
+  }
+  public addToCart(item:ItemDetails): Observable<ItemDetails> {
+    return this.http.post<ItemDetails>(`${this.apiServerUrl}/cart/add/${item.id}`, item);
   }
 }
