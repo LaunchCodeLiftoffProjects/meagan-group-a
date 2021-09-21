@@ -9,7 +9,7 @@ import { environment } from '@environments/environment';
   providedIn: 'root'
 })
 export class ItemService {
-  private apiServerUrl = environment.apiURL;
+  //private apiServerUrl = environment.apiURL;
 
   constructor(private messageService: MessageService,private http: HttpClient ) { }
 
@@ -19,9 +19,9 @@ export class ItemService {
   }
   getItemById(itemId: number){
     this.messageService.add(`ItemService: Fetched Item Details of item with id:${itemId}`)
-    return this.http.get<any>(`${this.apiServerUrl}/items/${itemId}`)
+    return this.http.get<any>(`/items/${itemId}`)
   }
   public addToCart(item:ItemDetails): Observable<ItemDetails> {
-    return this.http.post<ItemDetails>(`${this.apiServerUrl}/cart/add/${item.id}`, item);
+    return this.http.post<ItemDetails>(`/cart/add/${item.id}`, item);
   }
 }
