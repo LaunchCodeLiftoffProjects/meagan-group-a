@@ -13,7 +13,7 @@ public class CustomerOrderController {
     @Autowired
     private CustomerOrderRepository customerOrderRepository;
 
-    @GetMapping("/order/{orderId}")
+    @GetMapping("/order")
     public CustomerOrder getOrder(@RequestParam int orderId) {
         Optional<CustomerOrder> order = customerOrderRepository.findById(orderId);
         return  order.get();
