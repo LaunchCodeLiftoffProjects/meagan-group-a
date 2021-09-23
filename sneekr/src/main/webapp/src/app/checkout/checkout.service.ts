@@ -12,7 +12,7 @@ export class CheckoutService {
 
   constructor(private http: HttpClient) { }
 
-  public saveOrder(order: CustomerOrder): Observable<CustomerOrder> {
+  public saveOrder(order: CustomerOrder): Observable<any> {
     return this.http.post<CustomerOrder>('/order', order);
   }
 }

@@ -13,8 +13,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
 import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
   declarations: [

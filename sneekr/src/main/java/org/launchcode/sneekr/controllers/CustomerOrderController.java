@@ -13,14 +13,14 @@ public class CustomerOrderController {
     @Autowired
     private CustomerOrderRepository customerOrderRepository;
 
-    @GetMapping("/order/{orderId}")
+    @GetMapping("/order")
     public CustomerOrder getOrder(@RequestParam int orderId) {
         Optional<CustomerOrder> order = customerOrderRepository.findById(orderId);
         return  order.get();
     }
 
     @PostMapping("/order")
-    public void saveOrder(@RequestBody CustomerOrder order) {
-        customerOrderRepository.save(order);
+    public CustomerOrder saveOrder(@RequestBody CustomerOrder order) {
+        return customerOrderRepository.save(order);
     }
 }

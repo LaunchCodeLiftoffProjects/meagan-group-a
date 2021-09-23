@@ -9,16 +9,18 @@ import { OrderService } from './order.service';
 })
 export class OrderComponent implements OnInit {
 
+  searchId: any;
+
   order: any;
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
-    this.getOrder();
+
   }
 
-  getOrder() {
-    this.order = this.orderService.getOrder();
+  onSubmit() {
+    this.orderService.getOrder(this.searchId).subscribe(data => this.order = data);
   }
 
 }

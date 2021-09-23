@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerOrder } from '../models/CustomerOrder';
 import { Item } from '../models/item';
 import { CheckoutService } from './checkout.service';
+import { OrderService } from '../order/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -12,17 +13,30 @@ import { CheckoutService } from './checkout.service';
 export class CheckoutComponent implements OnInit {
 
   order: CustomerOrder;
-  testItems: Item[] = [];
+  orderId: any = null;
+  confirmedOrder: any = null;
+  orderSuccess: boolean = false;
 
-  constructor(private service: CheckoutService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private checkoutService: CheckoutService, private orderService: OrderService) {
     this.order = new CustomerOrder();
   }
 
   onSubmit(): void {
-    this.service.saveOrder(this.order);
+    this.checkoutService.saveOrder(this.order).subscribe(data => {
+      this.orderSuccess = true;
+      this.orderId = data.id;
+      this.ngOnInit();
+    });
+  }
+
+  getVerifiedOrder(id: number): void {
+    this.orderService.getOrder(id).subscribe(data => this.confirmedOrder = data);
   }
 
   ngOnInit(): void {
+    if (this.orderSuccess) {
+      this.getVerifiedOrder(this.orderId);
+    }
   }
-
 }
+

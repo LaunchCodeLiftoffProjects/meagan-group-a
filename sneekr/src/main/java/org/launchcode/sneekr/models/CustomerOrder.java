@@ -10,11 +10,14 @@ import java.util.Objects;
 public class CustomerOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany(mappedBy = "customerOrder")
-    private List<Item> purchasedItems;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "items_customer_order",
+            joinColumns = @JoinColumn(name = "customer_order_id"),
+            inverseJoinColumns = @JoinColumn(name = "purchased_items_id"))
+    private List<Item> purchasedItems = new ArrayList<>();
 
     @ManyToOne
     private User user;
@@ -53,9 +56,6 @@ public class CustomerOrder {
         this.state = state;
         this.city = city;
         this.postalCode = postalCode;
-        for (Item item : purchasedItems) {
-            item.getCustomerOrder().add(this);
-        }
     }
 
     public CustomerOrder(List<Item>purchasedItems, String name, String email, String address, String address2, String country, String state, String city, String postalCode) {
@@ -68,12 +68,13 @@ public class CustomerOrder {
         this.state = state;
         this.city = city;
         this.postalCode = postalCode;
-        for (Item item : purchasedItems) {
-            item.getCustomerOrder().add(this);
-        }
     }
 
     public CustomerOrder() {}
+
+    public int getId() {
+        return id;
+    }
 
     public List<Item> getPurchasedItems() {
         return purchasedItems;
