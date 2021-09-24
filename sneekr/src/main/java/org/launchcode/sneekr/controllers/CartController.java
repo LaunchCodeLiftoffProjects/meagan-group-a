@@ -46,4 +46,9 @@ public class CartController {
         Optional<Item> item = itemRepository.findById(itemId);
         item.ifPresent(cart::decreaseItemQuantity);
     }
+
+    @GetMapping("/cart/clear")
+    public void clearCart(HttpServletRequest httpServletRequest) {
+        CartUtility.clearCartInSession(httpServletRequest);
+    }
 }

@@ -25,4 +25,9 @@ export class CartService {
     return this.httpClient.post<any>(`/cart/decreaseQty/${item.id}`,{});
   }
 
+  clearCart(): Observable<any> {
+    console.log('clearing cart');
+    return this.httpClient.get<any>('/cart/clear');
+  }
+
 }
