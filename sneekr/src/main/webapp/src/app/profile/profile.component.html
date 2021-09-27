@@ -23,8 +23,29 @@
       {{ role }}
     </li>
   </ul>
-</div>
+  <div *ngIf="wishList.length>0">
+    <span>WishList</span>
+    <table>
+      <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th></th>
+      </thead>
+      <tbody>
 
-<ng-template #loggedOut>
-  Please login.
-</ng-template>
+      <tr  *ngFor="let item of wishList">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  <ng-template #loggedOut>
+    Please login.
+  </ng-template>
+

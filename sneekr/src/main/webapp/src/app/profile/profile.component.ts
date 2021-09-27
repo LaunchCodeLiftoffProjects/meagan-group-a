@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { WishListService } from '../_services/wish-list.service';
+import {Item} from "@app/models/item";
 
 @Component({
   selector: 'app-profile',
@@ -8,10 +10,14 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
+  wishList: Item[]= [];
 
-  constructor(private token: TokenStorageService) { }
+  constructor(private token: TokenStorageService, private wishListService: WishListService) { }
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
+    this.wishListService.getAll(this.currentUser.id).subscribe(data => {
+      this.wishList = data;
+    });
   }
 }
