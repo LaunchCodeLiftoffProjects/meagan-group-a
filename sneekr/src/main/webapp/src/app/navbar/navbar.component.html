@@ -11,13 +11,12 @@
           <a class="nav-link" routerLink="/listView">Products</a>
           <a class="nav-link" routerLink="/order">Orders</a>
           <a class="nav-link" routerLink="/cart">Cart  <span *ngIf="quantity > 0" class="badge rounded-pill bg-danger">{{quantity}}<span class="visually-hidden">unread messages</span></span></a>
-          <a class="nav-link" routerLink="/checkout">Checkout</a>
           <a class="nav-link" routerLink="/add-item">Add Product</a>
+          <form class="d-flex" action="">
+            <input type="text" class="form-control me-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
-        <form class="d-flex" action="">
-          <input type="text" class="form-control me-2" type="search" placeholder="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
         <div class="auth-container">
           <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
             <li class="nav-item">
