@@ -36,9 +36,9 @@
         <label class="p-2">Tax</label>
       </div>
       <div class="d-flex flex-column">
-        <label class="p-2">${{cart.total}}</label>
+        <label class="p-2">${{cart.total | number:'1.2-2'}}</label>
         <label class="p-2">FREE</label>
-        <label class="p-2">${{cart.total * 7.5 / 100}}</label>
+        <label class="p-2">${{cart.total * 7.5 / 100 | number:'1.2-2'}}</label>
       </div>
     </div>
     <hr class="mt-2 mb-2">
@@ -47,7 +47,7 @@
         <h4 class="p-2">Estimate Total</h4>
       </div>
       <div class="d-flex flex-column">
-        <h4 class="p-2">${{cart.total + (cart.total * 7.5 / 100)}}</h4>
+        <h4 class="p-2">${{cart.total * 107.5 / 100 | number:'1.2-2'}}</h4>
       </div>
     </div>
     <div class="d-flex justify-content-around">
