@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { testItem } from '../mock-item-details';
-
+import { Injectable } from '@angular/core';
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-add-to-cart',
   templateUrl: './add-to-cart.component.html',
@@ -8,12 +10,14 @@ import { testItem } from '../mock-item-details';
 })
 export class AddToCartComponent implements OnInit {
 
-  itemDetails= testItem
-  itemPrice = this.itemDetails.price
+  public price: number = -1
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  public setDisplayPrice(price:number){
+    this.price=price
   }
 
 }

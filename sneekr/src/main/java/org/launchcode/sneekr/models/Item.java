@@ -15,6 +15,10 @@ public class Item {
     private String name;
     private String description;
     private double price;
+    private ArrayList<String> photos;
+    private ArrayList<String> colors;
+    private ArrayList<String> sizes;
+
 
     @ManyToMany
     private List<CustomerOrder> customerOrder = new ArrayList<>();
@@ -23,8 +27,18 @@ public class Item {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.photos =new ArrayList<>(List.of("photo1","photo2","photo3"));
+        this.colors =new ArrayList<>(List.of("red","blue","yellow"));
+        this.sizes =new ArrayList<>(List.of("small","medium","large"));
     }
-
+    public Item(String name, String description, double price,ArrayList<String> photos,ArrayList<String> colors,ArrayList<String> sizes) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.photos =photos;
+        this.colors =colors;
+        this.sizes =sizes;
+    }
     public Item() {
     }
 
@@ -63,6 +77,30 @@ public class Item {
     public void setCustomerOrder(List<CustomerOrder> customerOrder) {
         this.customerOrder = customerOrder;
     }
+
+    public ArrayList<String> getColors() {
+        return colors;
+    }
+
+    public void setColors(ArrayList<String> newColors) {
+        this.colors = newColors;
+    }   
+    public ArrayList<String> getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(ArrayList<String> newSizes) {
+        this.sizes= newSizes;
+    }   
+    public ArrayList<String> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(ArrayList<String> newPhotos) {
+        this.photos = newPhotos;
+    } 
+
+ 
 
     @Override
     public String toString() {
