@@ -32,5 +32,6 @@ export class ListComponent implements OnInit {
       this.toggleAlert();
       window.setTimeout(() => { this.toggleAlert() }, 4000);
     });
+    this.cartService.increaseCartBadgeQuantity();
   }
 }
