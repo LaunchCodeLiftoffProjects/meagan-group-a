@@ -29,7 +29,7 @@ public class WishList {
     private Date createdDate;
 
     //Object of product class to store the product information
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Item product;
 

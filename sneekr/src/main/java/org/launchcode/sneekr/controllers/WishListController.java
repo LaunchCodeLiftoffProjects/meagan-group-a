@@ -26,7 +26,6 @@ public class WishListController {
         //get wishlist
         List<WishList> body = wishListService.readWishList(user_id);
 
-        //create productDTO from productId in wishlist
         List<Item> products = new ArrayList<Item>();
         for (WishList wishList : body) {
             products.add(wishList.getProduct());
@@ -34,6 +33,7 @@ public class WishListController {
 
         return new ResponseEntity<List<Item>>(products, HttpStatus.OK);
     }
+
     @GetMapping("/{userId}/{productId}")
     public WishList saveWishList(@PathVariable("userId") String userId,@PathVariable("productId") String productId) {
         WishList wishList = new WishList(Integer.valueOf(userId), Integer.valueOf(productId));
@@ -48,10 +48,16 @@ public class WishListController {
 
         return wishList.getId();
     }
-//    @DeleteMapping("/{userId}/{productId}")
-//    private void deleteBook(@PathVariable("userId") int userId,@PathVariable("productId") int productId)
-//    {
-//        wishListService.remove(userId,productId);
-//    }
+    @DeleteMapping("/{userId}/{productId}")
+    private void delete(@PathVariable("userId") int userId, @PathVariable("productId") int productId)
+    {
+        List<WishList> body = wishListService.readWishList(userId);
 
+        Integer productToRemove = 0;
+        for (WishList wishList : body) {
+            if (wishList.getProductId()==productId)
+                productToRemove = wishList.getId();
+        }
+        wishListService.deleteById(productToRemove);
+    }
 }

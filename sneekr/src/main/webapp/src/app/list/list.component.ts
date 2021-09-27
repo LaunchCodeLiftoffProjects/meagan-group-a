@@ -13,6 +13,7 @@ export class ListComponent implements OnInit {
   currentUser: any;
   isLoggedIn = false;
   list: any[] = [];
+  wishList: any[] = [];
 
   constructor(private service: ListService, private cartService: CartService, private wishListService:WishListService,  private tokenStorageService: TokenStorageService) { }
 
@@ -21,13 +22,17 @@ export class ListComponent implements OnInit {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       this.currentUser = this.tokenStorageService.getUser();
+      this.wishListService.getAll(this.currentUser.id).subscribe(data => {
+        this.wishList = data;
+      });
+
     }
   }
-getList(){
-  this.service.getList().subscribe(data => {
-    this.list = data;
-  });
-}
+  getList(){
+    this.service.getList().subscribe(data => {
+      this.list = data;
+    });
+  }
 
   onSubmit(item: any): void {
     this.cartService.addToCart(item).subscribe(data => {
@@ -36,18 +41,19 @@ getList(){
       }
     });
   }
-  onWishListSubmit(item:any):void{
-    this.wishListService.addWishList(item,this.currentUser.id);
-  }
   addWishList(item:any): void {
 
     this.wishListService.add(item,this.currentUser.id)
       .subscribe(
         response => {
           console.log(response);
+          this.wishList.push(item);
         },
         error => {
           console.log(error);
         });
+  }
+  wishListHas(id:any):boolean {
+    return this.wishList.filter(function(item){ return item.id === id }).length>0;
   }
 }

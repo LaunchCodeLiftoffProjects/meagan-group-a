@@ -27,4 +27,9 @@ public class WishListService {
     public List<WishList> readWishList(Integer userId) {
         return wishListRepository.findAllByUserIdOrderByCreatedDateDesc(userId);
     }
+
+    //Delete WishList
+    public void deleteById(Integer id) {
+        wishListRepository.deleteById(id);
+    }
 }
