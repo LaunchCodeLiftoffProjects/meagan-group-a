@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "@app/_services/token-storage.service";
+import { CartService } from '@app/cart/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,9 @@ export class NavbarComponent implements OnInit {
   showModeratorFeatures = false;
   username?: string;
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  quantity: number = 0;
+
+  constructor(private tokenStorageService: TokenStorageService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -28,6 +31,10 @@ export class NavbarComponent implements OnInit {
 
       this.username = user.username;
     }
+
+    this.cartService.getCartBadgeQuantity().subscribe(cartQuantity => {
+      this.quantity = cartQuantity;
+    });
   }
 
   logout(): void {
