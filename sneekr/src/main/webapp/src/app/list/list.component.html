@@ -4,8 +4,8 @@
   <strong>Success!</strong> You've added an item to your shopping cart.
   <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 </div>
-<table>
-<thead>
+<table class="table table-striped">
+<thead class="table-primary">
 <th>Id</th>
 <th>Name</th>
 <th>Description</th>
@@ -19,7 +19,7 @@
     <td>{{item.description}}</td>
     <td>{{item.price}}</td>
     <td> <button class="btn btn-sm btn-primary" (click)="onSubmit(item)"> Add to cart </button></td>
-    <td *ngIf="isLoggedIn"> <button class="btn btn-sm btn-primary" (click)="addWishList(item)"> Add to WishList </button></td>
+    <td *ngIf="isLoggedIn && !wishListHas(item.id)"> <button class="btn btn-sm btn-primary" (click)="addWishList(item)"> Add to WishList </button></td>
   </tr>
   </tbody>
 </table>

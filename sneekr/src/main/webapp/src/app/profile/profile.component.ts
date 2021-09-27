@@ -20,4 +20,8 @@ export class ProfileComponent implements OnInit {
       this.wishList = data;
     });
   }
+  delete(item: any): void {
+    this.wishListService.delete(item,this.currentUser.id).subscribe(d => {{}});
+    this.wishList.splice(this.wishList.indexOf(item), 1);
+  }
 }

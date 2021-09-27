@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   isLoggedIn = false;
   successAlert: any;
   list: any[] = [];
+  wishList: any[] = [];
 
   constructor(private service: ListService, private cartService: CartService, private wishListService:WishListService,  private tokenStorageService: TokenStorageService) { }
 
@@ -24,6 +25,10 @@ export class ListComponent implements OnInit {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       this.currentUser = this.tokenStorageService.getUser();
+      this.wishListService.getAll(this.currentUser.id).subscribe(data => {
+        this.wishList = data;
+      });
+
     }
     this.successAlert = document.querySelector('.alert');
   }
@@ -43,7 +48,7 @@ export class ListComponent implements OnInit {
     });
     this.cartService.increaseCartBadgeQuantity();
   }
-  
+
   onWishListSubmit(item:any):void{
     this.wishListService.addWishList(item,this.currentUser.id);
   }
@@ -53,9 +58,13 @@ export class ListComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
+          this.wishList.push(item);
         },
         error => {
           console.log(error);
         });
+  }
+  wishListHas(id:any):boolean {
+    return this.wishList.filter(function(item){ return item.id === id }).length>0;
   }
 }
