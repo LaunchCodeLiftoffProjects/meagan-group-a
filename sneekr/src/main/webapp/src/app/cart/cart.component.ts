@@ -29,9 +29,12 @@ export class CartComponent implements OnInit {
  }
   add(item: Item) {
     this.service.addToCart(item).subscribe(() => { this.getCartList();})
+    this.service.increaseCartBadgeQuantity();
   }
+
   remove(item: Item) {
     this.service.decreaseQty(item).subscribe(() => { this.getCartList();})
+    this.service.decreaseCartBadgeQuantity();
   }
 
 }
