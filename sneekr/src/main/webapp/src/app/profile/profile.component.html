@@ -40,6 +40,7 @@
         <td>{{item.name}}</td>
         <td>{{item.description}}</td>
         <td>{{item.price}}</td>
+        <td> <button class="btn btn-sm btn-primary" (click)="addToCart(item)"> Add to cart </button></td>
         <td><button class="btn btn-sm btn-primary" (click)="delete(item)"> Remove </button></td>
       </tr>
       </tbody>

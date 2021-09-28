@@ -49,9 +49,6 @@ export class ListComponent implements OnInit {
     this.cartService.increaseCartBadgeQuantity();
   }
 
-  onWishListSubmit(item:any):void{
-    this.wishListService.addWishList(item,this.currentUser.id);
-  }
   addWishList(item:any): void {
 
     this.wishListService.add(item,this.currentUser.id)
