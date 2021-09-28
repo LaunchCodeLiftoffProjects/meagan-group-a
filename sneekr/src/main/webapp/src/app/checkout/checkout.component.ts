@@ -40,7 +40,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   getRoundedCartTotal(): number {
-    return Math.round(this.cart.total * 100) / 100;
+    return Math.round((this.cart.total * 100) + (this.cart.total * 7.5)) / 100;
   }
 
   ngOnInit(): void {
